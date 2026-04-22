@@ -4,6 +4,7 @@ import { getPromptResponseText } from "./src/response/getPromptResponseText.js";
 // import { getStructuredResponse } from "./src/response/getStructuredResponse.js";
 // import { getStreamingStructuredResponse } from "./src/response/getStreamingStructuredResponse.js";
 import { modelWithMemory } from "./src/model/llama3.js";
+import { Logger } from "./src/callbacks/logger.js";
 
 
 // Initialize the readline interface
@@ -16,7 +17,10 @@ const chainWithMemoryHistory = modelWithMemory;
 
 async function runner(sessionId: string) {
   // await summarizeMessages(sessionId);
-  const config = { configurable: { sessionId } };
+  const config = {
+    configurable: { sessionId },
+    // callbacks: [new Logger()]
+  }; // this object also gets passed to tools
   rl.question("Enter a prompt: ", async (promptInput) => {
     await getPromptResponseText(promptInput, chainWithMemoryHistory, rl, config);
     // await getStructuredResponse(promptInput, chain, rl);

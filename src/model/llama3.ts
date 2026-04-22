@@ -13,7 +13,7 @@ import { messageHistorySummarizerRunnable } from "../runnable/messageHistorySumm
 
 // locally running llm model
 const model = new ChatOllama({
-  model: "llama3",
+  model: "llama3.1",
   // temperature: 0, // set temperature to 0 for structured response
   temperature: 0.7,
   streaming: true,  // set streaming to true for streaming response
@@ -23,7 +23,7 @@ const model = new ChatOllama({
 // set system prompts
 // for memory, use MessagesPlaceholder
 const systemPrompts = ChatPromptTemplate.fromMessages([
-  ["system", "You are a local AI running on a dev's machine, you are fast and helpful. Provide a verbose response with the necessary details"],
+  ["system", "You are a local AI running on a dev's machine, you are fast and helpful. Provide a verbose response with the necessary details."],
   new MessagesPlaceholder(MESSAGE_HISTORY_KEY),  // pasing the variable name for the chat history
   ["human", `{${INPUT_KEY}}`],
 ]);
