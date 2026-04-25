@@ -4,8 +4,7 @@ import { getPromptResponseText } from "./src/response/getPromptResponseText.js";
 // import { getStructuredResponse } from "./src/response/getStructuredResponse.js";
 // import { getStreamingStructuredResponse } from "./src/response/getStreamingStructuredResponse.js";
 import { modelWithMemory } from "./src/model/llama3.js";
-import { Logger } from "./src/callbacks/logger.js";
-
+// import { Logger } from "./src/callbacks/logger.js";
 
 // Initialize the readline interface
 const rl = readline.createInterface({
